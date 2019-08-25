@@ -6273,7 +6273,8 @@ button.bg-dark:focus {
   padding-left: 1rem !important; }
 
 .p-4 {
-  padding-left: 1.5rem !important; }
+  padding-left: 1.5rem !important;
+    padding-top: 1rem !important;}
 
 .pt-4,
 .py-4 {
