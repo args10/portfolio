@@ -6669,7 +6669,8 @@ button.bg-dark:focus {
   .px-md-4 {
     padding-left: 1.5rem !important; }
   .p-md-5 {
-    padding: 3rem !important; }
+    padding: 3rem !important; 
+    padding-bottom: 0 !important; }
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
@@ -7298,10 +7299,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #ccb78f; }
+  color: #3f90e2; }
   a:hover, a:focus {
     text-decoration: none;
-    color: #ccb78f;
+    color: #3fc4e2;
     outline: none !important; }
 
 h1, h2, h3, h4, h5,
@@ -8212,7 +8213,7 @@ textarea.form-control {
 .ftco-footer {
   font-size: 14px;
   background: #242423;
-  padding: 6em 0; }
+  padding: 1em 0; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
