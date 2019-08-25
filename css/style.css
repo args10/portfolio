@@ -7658,7 +7658,7 @@ h1, h2, h3, h4, h5,
     .hero-wrap .text .desc h1.big-letter {
       position: absolute;
       top: 40px;
-      left: 0;
+      /*left: 0;*/
       right: 0;
       color: #ededed;
       z-index: -1;
