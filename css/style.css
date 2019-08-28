@@ -8021,6 +8021,10 @@ h1, h2, h3, h4, h5,
     color: #000000;
     margin-bottom: 0; }
 
+.other-stuff-center{
+	text-align: center;
+}
+
 
 .instagram .container-fluid {
   padding-left: 0;
@@ -8755,3 +8759,5 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
