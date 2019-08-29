@@ -6672,7 +6672,7 @@ button.bg-dark:focus {
   .p-md-5 {
     padding: 3rem !important; 
     padding-bottom: 0 !important; 
-    padding-top: 0rem !important;}
+    padding-top: 1rem !important;}
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
@@ -8030,6 +8030,13 @@ h1, h2, h3, h4, h5,
 
 .other-stuff-center{
 	text-align: center;
+}
+
+.other-stuff-center span{
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    display: block;
+    
 }
 	
 .instagram .container-fluid {
