@@ -8441,13 +8441,15 @@ textarea.form-control {
       border: 1px solid transparent; }
 
 .contact-section .contact-info p a {
-  color: #1a1a1a; }
+  }
 
 .contact-section .info {
   width: 100%; }
 
 .contact-section .contact-form {
   width: 100%; }
+
+
 
 .block-9 .form-control {
   outline: none !important;
