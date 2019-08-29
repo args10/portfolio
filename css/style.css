@@ -6672,7 +6672,7 @@ button.bg-dark:focus {
   .p-md-5 {
     padding: 3rem !important; 
     padding-bottom: 0 !important; 
-    padding-top: 1.5rem !important;}
+    padding-top: 0rem !important;}
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
@@ -7661,6 +7661,11 @@ h1, h2, h3, h4, h5,
     position: static !important; }
   .hero-wrap .text {
     position: relative; }
+
+    .hero-wrap .text .desc{
+        padding-top: 3rem;
+
+    }
     .hero-wrap .text .desc h1.big-letter {
       position: absolute;
       top: 40px;
@@ -7670,6 +7675,9 @@ h1, h2, h3, h4, h5,
       z-index: -1;
       font-size: 70px;
       line-height: 1; }
+
+
+
   .hero-wrap .text {
     z-index: 1;
     font-size: 18px;
@@ -8214,8 +8222,12 @@ textarea.form-control {
   -ms-border-radius: 50%;
   border-radius: 50%; }
 
+.desc {
+    padding: 1rem;
+}
+
 .about-author .desc h3 {
-  font-size: 20px; }
+  font-size: 18px; }
 
 .ftco-section {
   padding: 5em 1.8em;
