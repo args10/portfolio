@@ -7655,6 +7655,9 @@ h1, h2, h3, h4, h5,
       font-family: "Herr Von Muellerhoff", cursive; }
   .hero-wrap .author-image .author-img {
     width: 100%; }
+
+#skills{
+    position: static !important; }
   .hero-wrap .text {
     position: relative; }
     .hero-wrap .text .desc h1.big-letter {
@@ -7687,7 +7690,7 @@ h1, h2, h3, h4, h5,
       font-weight: 900;
       color: #ccb78f; }
       .hero-wrap .text h1 span {
-        color: #000000; 
+        color: #000000e3; 
         font-weight: normal;
         text-shadow: 5px 5px 5px rgba(115,115,115,0.2);
         }
