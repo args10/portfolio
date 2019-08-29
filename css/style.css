@@ -6182,7 +6182,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-  margin-top: 3rem !important; }
+  margin-top: 1rem !important; }
 
 .mr-5,
 .mx-5 {
@@ -6671,7 +6671,8 @@ button.bg-dark:focus {
     padding-left: 1.5rem !important; }
   .p-md-5 {
     padding: 3rem !important; 
-    padding-bottom: 0 !important; }
+    padding-bottom: 0 !important; 
+    padding-top: 0rem !important;}
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
