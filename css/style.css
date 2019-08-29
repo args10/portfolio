@@ -7687,7 +7687,10 @@ h1, h2, h3, h4, h5,
       font-weight: 900;
       color: #ccb78f; }
       .hero-wrap .text h1 span {
-        color: #000000; }
+        color: #000000; 
+        font-weight: normal;
+        text-shadow: 5px 5px 5px rgba(115,115,115,0.2);
+        }
       @media (max-width: 991.98px) {
         .hero-wrap .text h1 {
           font-size: 22px; } }
