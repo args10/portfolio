@@ -8019,9 +8019,9 @@ h1, h2, h3, h4, h5,
 
 .ftco-bread {
   /*background: #ccb78f !important;*/
-    background: rgb(63,144,226);
-    background: linear-gradient(180deg, rgba(63,144,226,1) 0%, rgba(0,212,255,1) 100%);
-    padding: 4em 1.8em !important; }
+    background: rgba(63,144,226,0.7);
+    /*background: linear-gradient(180deg, rgba(63,144,226,1) 0%, rgba(0,212,255,1) 100%);*/
+    padding: 2em 1.8em !important; }
   .ftco-bread .breadcrumbs {
     text-transform: uppercase;
     font-size: 13px;
