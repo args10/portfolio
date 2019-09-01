@@ -8018,8 +8018,10 @@ h1, h2, h3, h4, h5,
         color: #ccb78f; }
 
 .ftco-bread {
-  background: #ccb78f !important;
-  padding: 4em 1.8em !important; }
+  /*background: #ccb78f !important;*/
+    background: rgb(63,144,226);
+    background: linear-gradient(180deg, rgba(63,144,226,1) 0%, rgba(0,212,255,1) 100%);
+    padding: 4em 1.8em !important; }
   .ftco-bread .breadcrumbs {
     text-transform: uppercase;
     font-size: 13px;
@@ -8028,12 +8030,14 @@ h1, h2, h3, h4, h5,
     z-index: 99; }
     .ftco-bread .breadcrumbs span {
       border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-      color: black; }
+      color: #ffffff; }
       .ftco-bread .breadcrumbs span a {
-        color: rgba(0, 0, 0, 0.5); }
+        /*color: rgba(0, 0, 0, 0.5); */
+          color: rgba(255, 255, 255, 0.8);
+        }
   .ftco-bread .bread {
     font-weight: 700;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 0; }
 
 .other-stuff-center{
