@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhereForLunch</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/testCss.css"/>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--Import jQuery-->
+    <script src="js/jquery-3.2.1.js"></script>
+
+    <!--Import bootstrap js-->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<div>
+    <!-- Modal
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <br><br>
+                <div class="alert alert-info" >
+                  <h4 class="modal-title" id="myModalLabel">Simply touch any of the icons for more details about the restaurant</h4>
+                </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Get started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal -->
+
+    <!--
+
+    MODAL TRIGGERS
+        <a href="#modal1" class="btn waves-effect">Modal 1</a>
+        <a href="#modal2" class="btn waves-effect red">Modal 2</a>
+
+        <!-- MODAL STRUCTURE
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+          </div>
+          <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green">Button</a>
+          </div>
+        </div>
+
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Modal 2 Header</h4>
+            <p>A bunch of text</p>
+          </div>
+          <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green">Button</a>
+          </div>
+        </div>
+        -->
+
+    <div id="floating-panel"></div>
+    <div>
+        <button id="goback" class="btn btn-large orange white-text" style="display: none"
+                onclick="goBack()">Back
+        </button>
+    </div>
+    <!--<div id="infoWindow">
+        <div class="card">
+            <div class="card-image">
+                <img id="resImage" src="">
+                <span class="card-title" id="resName">Card Title</span>
+            </div>
+            <div class="card-content">
+                <img id="resRating" style="max-height: 18px;  margin: 5px">
+                <div id="resInfo">
+                    <p id="resAddress" style="margin-top: 6px"></p>
+                    <h6>Average Cost: <strong><p id="resAvgCost" style="display: inline-block"></p></strong></h6>
+                    <h6>Payments: <strong><p id="resCard" style="display: inline-block"></p></strong></h6>
+                    <h6>People typically spend: <strong><p id="resSpendTime" style="display: inline-block"></p></strong>
+                    </h6>
+                    <h6>Must Try: <strong><p id="mustTry" style="display: inline-block"></p></strong></h6>
+                    <br>
+                    <button class="btn waves-effect waves-light orange white-text pulse" id="navigation"
+                            onclick="showdirection()" style="width: 100%">Show Directions
+                    </button>
+                </div>
+            </div>
+
+        </div>-->
+
+
+    <!--     <img id="resImage" src=""><hr>
+        <div id="resInfo">
+            <h6 id="resName" style="display: inline-block; font-size: 18px"></h6>
+            <p id="resAddress" style="margin-top: 6px"></p>
+            <strong>Average Cost: </strong><p id="resAvgCost" style="display: inline-block"></p><br>
+            <strong>Payments: </strong><p id="resCard" style="display: inline-block"></p><br>
+            <strong>People typically spend: </strong><p id="resSpendTime" style="display: inline-block"></p><br>
+            <strong>Menu: </strong><p id="resMenu" style="display: inline-block"></p><br>
+            <button class="btn btn-danger pulse" id="navigation" onclick="showdirection()" style="width: 100%">ShowNavigation</button>
+        </div>
+    </div>-->
+</div>
+<div id="right-panel">
+    <div id="filter" onchange="filter()">
+        <form class="form-horizontal">
+            <h3 class="orange darken-2">20 restaurants found near you</h3>
+
+
+            <div class="form-group">
+                <!--                 <div class="row">
+                                    <label for="cuisine" class="col-sm-12 "><h5>Cuisine</h5>
+                                        <div class="progress">
+                                            <div class="determinate orange" style="width:40%"></div>
+                                        </div>
+                                    </label>
+                                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <h5>Most searched:</h5>
+                        <div id="cuisine" class="checkbox" onclick="filterCount()">
+
+                            <input id="cuisine1" class="cuisine" type="checkbox" value="Asian" onclick="check1()">
+                            <label for="cuisine1"><img id="c1" src="images/icons/fnoodles.png">
+                                <br>
+                                <span>Noodles</span>
+                            </label>
+
+                            <input id="cuisine2" class="cuisine" type="checkbox" value="Italian" onclick="check2()">
+                            <label for="cuisine2"><img id="c2" src="images/icons/fpizza.png">
+                                <br>
+                                <span>Pizza</span>
+                            </label>
+
+                            <input id="cuisine3" class="cuisine" type="checkbox" value="Lebanese" onclick="check3()">
+                            <label for="cuisine3"><img id="c3" src="images/icons/fkebab.png">
+                                <br>
+                                <span>Kebab</span>
+                            </label>
+
+                            <input id="cuisine4" class="cuisine" type="checkbox" value="Cafe" onclick="check4()">
+                            <label for="cuisine4"><img id="c4" src="images/icons/fCoffee.png">
+                                <br>
+                                <span>Coffee</span>
+                            </label>
+
+                            <input id="cuisine5" class="cuisine" type="checkbox" value="Spanish" onclick="check5()">
+                            <label for="cuisine5"><img id="c5" src="images/icons/fseefood.png">
+                                <br>
+                                <span>Seafood</span>
+                            </label>
+
+                            <input id="cuisine6" class="cuisine" type="checkbox" value="American" onclick="check6()">
+                            <label for="cuisine6"><img id="c6" src="images/icons/fchicken.png">
+                                <br>
+                                <span>Chicken</span>
+                            </label>
+
+                            <input id="cuisine7" class="cuisine" type="checkbox" value="German" onclick="check7()">
+                            <label for="cuisine7"><img id="c7" src="images/icons/fhamburger.png">
+                                <br>
+                                <span>Burger</span>
+                            </label>
+
+                            <input id="cuisine8" class="cuisine" type="checkbox" value="French" onclick="check8()">
+                            <label for="cuisine8"><img id="c8" src="images/icons/fmuffin.png">
+                                <br>
+                                <span>Donuts</span>
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <!--                 <div class="row">
+                                    <label for="vegan" class="col-sm-12"><h5>Vegan</h5>
+                                        <div class="progress">
+                                            <div class="determinate orange" style="width:40%"></div>
+                                        </div>
+                                    </label>
+                                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="progress">
+                            <div class="determinate orange" style="width:100%"></div>
+                        </div>
+                        <h5>Ingredients:</h5>
+                        <div id="vegan" class="checkbox" onclick="filterCount()">
+                            <input id="vegan1" class="vegan" type="checkbox" value="vtrue" onclick="check12()">
+                            <label for="vegan1"><img id="v1" src="images/icons/vegan.jpg" height="64px" width="64px">
+                                <br>
+                                <span>  Vegan</span>
+                            </label>
+                            <input id="vegan2" class="vegan" type="checkbox" value="vtrue" onclick="check13()">
+                            <label for="vegan2"><img id="v2" src="images/icons/gluten.jpg" height="64px" width="64px">
+                                <br>
+                                <span>Gluten-free</span>
+                            </label>
+                            <input id="vegan3" class="vegan" type="checkbox" value="vtrue" onclick="check14()">
+                            <label for="vegan3"><img id="v3" src="images/icons/lactose.jpg" height="64px" width="64px">
+                                <br>
+                                <span>Lactose-free</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <!--                 <div class="row">
+                                    <label for="cost" class="col-sm-12 "><h5> Average Cost: </h5>
+                                        <div class="progress">
+                                            <div class="determinate orange" style="width:100%"></div>
+                                        </div>
+                                    </label>
+                                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="progress">
+                            <div class="determinate orange" style="width:100%"></div>
+                        </div>
+                        <h5> Average Cost: </h5>
+                        <div id="cost" class="checkbox" onclick="filterCount()">
+                            <input id="ch1" class="cost" type="checkbox" value="less" onclick="check15()">
+                            <!-- <label for="ch1">
+                                <a id ="co1" class="btn orange white-text">&#8364;</a>
+                                <br>
+                                <span>0 - 10 &#8364;</span>
+                            </label> -->
+
+                            <label for="ch1"> <img id ="co1" src="images/icons/low.jpg" height="45px;">
+                                <br>
+                                <span>0 - 10 &#8364;</span>
+                            </label>
+
+                            <input id="ch2" class="cost" type="checkbox" value="medium" onclick="check16()">
+                            <!-- <label for="ch2">
+                                <a id ="co2" class="btn orange white-text">&#8364;&#8364;</a>
+                                <br>
+                                <span>11 - 40 &#8364;</span>
+                            </label> -->
+
+                            <label for="ch2"> <img id ="co2" src="images/icons/med.jpg" height="45px;">
+                                <br>
+                                <span>11 - 40 &#8364;</span>
+                            </label>
+
+                            <input id="ch3" class="cost" type="checkbox" value="high" onclick="check17()">
+                            <!-- <label for="ch3">
+                                <a id ="co3" class="btn orange white-text">&#8364;&#8364;&#8364;</a>
+                                <br>
+                                <span>41 - 60 &#8364;</span>
+                            </label> -->
+
+                            <label for="ch3"> <img id ="co3" src="images/icons/med.jpg" height="45px;">
+                                <br>
+                                <span>41 - 60 &#8364;</span>
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="payment">
+                <!-- <div class="row">
+                    <label for="payments" class="col-sm-12"><h5>Cards accepted</h5>
+                        <div class="progress">
+                            <div class="determinate orange" style="width:40%"></div>
+                        </div>
+                    </label>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="progress">
+                            <div class="determinate orange" style="width:100%"></div>
+                        </div>
+                        <h5>Payment:</h5>
+                        <div id="payments" class="checkbox" onclick="filterCount()">
+                            <input id="payments1" class="payments" type="checkbox" value="cfalse" onclick="check9()">
+                            <label for="payments1"> <img id="p1" src="images/icons/cash.png">
+                                <br>
+                                <span>Cash</span>
+                            </label>
+
+                            <input id="payments2" class="payments" type="checkbox" value="ctrue" onclick="check10()">
+                            <label for="payments2"> <img id="p2" src="images/icons/visaCard.png">
+                                <br>
+                                <span>Visa</span>
+                            </label>
+
+                            <input id="payments3" class="payments" type="checkbox" value="ctrue" onclick="check11()">
+                            <label for="payments3"> <img id="p3" src="images/icons/masterCard.png">
+                                <br>
+                                <span>Mastercard</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <!--                 <label for="reservation" class="col-sm-12"><h5>Reservation</h5>
+                                    <div class="progress">
+                                        <div class="determinate orange" style="width:40%"></div>
+                                    </div>
+                                </label> -->
+                <!--                 <div class="col-sm-12">
+                                    <div class="progress">
+                                        <div class="determinate orange" style="width:100%"></div>
+                                    </div>
+                                    <h5>Reservation:</h5>
+                                    <div id="reservation" class="checkbox" onclick="filterCount()">
+                                        <label>
+                                            <input class="reservation" type="checkbox" value="rtrue">
+                                            <label for="vegan1"><img id="v1" src="images/icons/reservationsrequirednew.png" height="64px" width="64px">
+                                            <br>
+                                            <span>reservationsrequirednew</span>
+                                        </label>
+                                    </div>
+                                </div> -->
+            </div>
+            <!--             <div class="form-group">
+                            <div class="row">
+                                <label for="available" class="col-sm-12"><h5>Opening</h5>
+                                    <div class="progress">
+                                        <div class="determinate orange" style="width:40%"></div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div id="available" class="checkbox" onclick="filterCount()">
+                                        <label>
+                                            <input class="available" type="checkbox" value="true"><h5>Now </h5>
+                                            <input class="available" type="checkbox" value="false"><h5>Later </h5>
+                                            <input class="available" type="checkbox" value="false"><h5>Ealier </h5>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+        </form>
+
+
+        <!--        <div class="alert alert-success" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  Select the above options for chosing a restaurant
+                </div>-->
+
+
+    </div>
+
+
+    <!--     <div id="selectMode" style="display: none">
+            <button class="btn btn-default mybtn" id="walking" value="WALKING"><img src="images/walking.png"></button>
+            <button class="btn btn-default mybtn" id="bicycling" value="BICYCLING"><img src="images/bycicle.png">
+            </button>
+            <button class="btn btn-default mybtn" id="transit" value="TRANSIT"><img src="images/bus.png"></button>
+            <button class="btn btn-default mybtn" id="driving" value="DRIVING"><img src="images/car.png"></button>
+        </div> -->
+
+    <div id="selectMode" style="display: none">
+        <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="walking" value="WALKING">
+                <i class="material-icons">directions_walk</i>
+            </button>
+            <span>walking</span>
+        </div>
+        <!--  <button class="btn orange white-text" id="bicycling" value="BICYCLING">
+             <i class="material-icons left">directions_bike</i>
+         </button>  -->
+        <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="transit" value="TRANSIT">
+                <i class="material-icons">directions_bus</i>
+            </button>
+            <br>
+            <span>By bus</span>
+        </div>
+        <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="driving" value="DRIVING">
+                <i class="material-icons">directions_car</i>
+            </button>
+            <br>
+            <span>By Car</span>
+        </div>
+    </div>
+    <div id="bottom-panel"></div>
+</div>
+<div id="map"></div>
+
+<script>
+
+    var map;
+    var infowindow;
+    var markerList = [];
+    var markerValueList = [];
+    var markerIndex;
+
+    var mypos;
+
+    var myposIcon;
+
+    var AsianIcon, ItalianIcon, LebaneseIcon, CafeIcon, SpanishIcon, AmericanIcon, GermanIcon, SwissIcon;
+    var elseIcon;
+
+    var directionsDisplay;
+    var directionsService;
+
+    var selectedMode;
+
+    var filterCountN = 0;
+
+    var filterPanel = document.getElementById('filter');
+    var select = document.getElementById('selectMode');
+
+    //$('#myModal').modal();
+
+    function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            mapTypeControl: false,
+            // center: {lat: 50.7788432, lng: 6.0800873},        // Ponttor
+            center: {lat: 50.774289, lng: 6.085889},           // Elisenbrunen
+            zoom: 16,
+            minZoom: 15,
+            maxZoom: 20,
+            styles: [
+                {
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#e3e3e3"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#e8eefd"
+                        },
+                        {
+                            "saturation": -35
+                        },
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "weight": 1.5
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#cedecf"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#42336c"
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.attraction",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.attraction",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.business",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.government",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.medical",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#e3e5df"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.place_of_worship",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.school",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.sports_complex",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#dadada"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#a7a6a7"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#c9c9c9"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#adc8d9"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                }
+            ]
+        });
+
+        myposIcon = {
+            url: 'images/icons/you-are-here-small.png'
+        };
+        AsianIcon = {
+            url: 'images/icons/noodles.png'
+        };
+        ItalianIcon = {
+            url: 'images/icons/pizza.png'
+        };
+        LebaneseIcon = {
+            url: 'images/icons/kebab.png'
+        };
+        CafeIcon = {
+            url: 'images/icons/coffee.png'
+        };
+        SpanishIcon = {
+            url: 'images/icons/seefood.png'
+        };
+        AmericanIcon = {
+            url: 'images/icons/chicken.png'
+        };
+        GermanIcon = {
+            url: 'images/icons/hamburger.png'
+        };
+        FrenchIcon = {
+            url: 'images/icons/muffin.png'
+        };
+        elseIcon = {
+            url: 'images/icons/kebab.png'
+        };
+
+        map.fitB
+
+        mypos = new google.maps.Marker({
+            map: map,
+            position: map.getCenter(),
+            icon: myposIcon,
+            animation: google.maps.Animation.DROP
+        });
+
+        mypos.addListener('click', toggleBounce);
+
+
+        $.getJSON("json/restaurants.json", function (data) {
+
+            $.each(data, function (i, field) {
+
+                for (var i = 0; i < field.length; i++) {
+
+                    markerIndex = i;
+                    createMarker(field[i], markerIndex);
+                }
+            });
+        });
+
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsService = new google.maps.DirectionsService;
+
+    }
+
+    function filterCount() {
+
+        filterCountN = 5;
+
+        var select1 = $(".cost:checked").length;
+        var select2 = $(".payments:checked").length;
+        var select3 = $(".vegan:checked").length;
+        var select4 = $(".reservation:checked").length;
+        var select5 = $(".cuisine:checked").length;
+
+        var selectList = [select1, select2, select3, select4, select5];
+
+        for (i = 0; i < 5; i++) {
+
+            if (selectList[i] === 0) {
+
+                filterCountN = filterCountN - 1;
+            }
+        }
+    }
+
+    function checkDisplay(selected, markerValue) {
+
+        var filterValue = new Array();
+
+        for (var n = 0; n < selected.length; n++) {
+
+            filterValue.push(selected[n].value);
+        }
+
+        keep = filterValue.indexOf(markerValue);
+
+        return keep;
+
+    }
+
+    function filter() {
+
+        var select1 = $(".cost:checked");
+        var select4 = $(".payments:checked");
+        var select2 = $(".vegan:checked");
+        var select5 = $(".reservation:checked");
+        var select3 = $(".cuisine:checked");
+
+
+        for (var x = 0; x < markerValueList.length; x++) {
+
+            var keepN = 0;
+
+            keep1 = checkDisplay(select1, markerValueList[x].average_cost);
+            keep2 = checkDisplay(select2, markerValueList[x].is_vegan);
+            keep3 = checkDisplay(select3, markerValueList[x].cuisine);
+            keep4 = checkDisplay(select4, markerValueList[x].cards_accepted);
+            keep5 = checkDisplay(select5, markerValueList[x].reservation_required);
+
+
+            var keepList = [keep1, keep2, keep3, keep4, keep5];
+
+            for (i = 0; i < 5; i++) {
+                if (keepList[i] === -1) {
+                    keepN = keepN + 1;
+                }
+            }
+
+            if (keepN + filterCountN === 5) {
+
+                markerList[x].setMap(map);
+
+            } else {
+                markerList[x].setMap(null);
+
+            }
+        }
+
+        map.setCenter({lat: 50.774289, lng: 6.085889});
+        map.setZoom(15);
+    }
+
+    function toggleBounce() {
+        if (mypos.getAnimation() !== null) {
+            mypos.setAnimation(null);
+        } else {
+            mypos.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+
+    function goBack() {
+
+
+        directionsDisplay.setMap(null);
+        directionsDisplay.setPanel(null);
+
+        filterPanel.style.display = 'block';
+        select.style.display = 'none';
+
+        document.getElementById('goback').style.display = 'none';
+        document.getElementById('print').style.display = 'none';
+
+        map.setCenter({lat: 50.774289, lng: 6.085889});
+        map.setZoom(15);
+
+
+    }
+
+    function createMarker(place, mindex) {
+
+        var marker;
+
+        if (place.filters.cuisine === 'Asian') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: AsianIcon
+            });
+        }
+        else if (place.filters.cuisine === 'Italian') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: ItalianIcon
+            });
+        }
+        else if (place.filters.cuisine === 'Lebanese') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: LebaneseIcon
+            });
+        }
+        else if (place.filters.cuisine === 'Cafe') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: CafeIcon
+            });
+        }
+
+        if (place.filters.cuisine === 'Spanish') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: SpanishIcon
+            });
+        }
+        else if (place.filters.cuisine === 'American') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: AmericanIcon
+            });
+        }
+        else if (place.filters.cuisine === 'German') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: GermanIcon
+            });
+        }
+        else if (place.filters.cuisine === 'French') {
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                icon: FrenchIcon
+            });
+        }
+
+        /*else {
+
+         marker = new google.maps.Marker({
+         map: map,
+         position: place.geometry.location,
+         icon: elseIcon
+         });
+         }*/
+
+
+        markerList[mindex] = marker;
+        markerValueList[mindex] = place.filters;
+
+        google.maps.event.addListener(marker, 'click', function () {
+
+            createInfor(place);
+
+        });
+    }
+
+    function createInfor(results) {
+
+        if (results.rating <= 1) {
+            results.rating = "images/star.png";
+        } else if (results.rating > 1 && results.rating <= 1.5) {
+            results.rating = "images/oneH.png";
+        } else if (results.rating > 1.5 && results.rating <= 2) {
+            results.rating = "images/twoStar.png";
+        } else if (results.rating > 2 && results.rating <= 2.5) {
+            results.rating = "images/twoH.png";
+        } else if (results.rating > 2.5 && results.rating <= 3) {
+            results.rating = "images/three.png";
+        } else if (results.rating > 3 && results.rating <= 3.5) {
+            results.rating = "images/threeH.png";
+        } else if (results.rating > 3.5 && results.rating <= 4) {
+            results.rating = "images/fourStar.png";
+        } else if (results.rating > 4 && results.rating <= 4.5) {
+            results.rating = "images/fourH.png";
+        } else {
+            results.rating = "images/fiveStar.png";
+        }
+
+        if (results.filters.average_cost === "less")
+            results.avgCost = "<span style='color:limegreen;'>&#8364; Low</span>";
+        if (results.filters.average_cost === "medium")
+            results.avgCost = "<span style='color:gold;'>&#8364;&#8364; Medium</span>";
+        else
+            results.avgCost = "<span style='color:tomato;'>&#8364;&#8364;&#8364; High</span>";
+
+        if (results.filters.is_vegan !== "vfalse")
+            results.isVegan = '<b>Vegan</b> <img style="max-height:30px;"  src="images/vagan.jpg"><br><br>';
+        else
+            results.isVegan = '';
+
+        if (results.filters.cards_accepted === "ctrue")
+            results.cardsAccepted = 'Cards accepted';
+        else
+            results.cardsAccepted = 'Cash only';
+
+        if (results.filters.reservation_required === "rtrue")
+            results.reservationRequired = '<b style="color: tomato"><span class="glyphicon glyphicon-exclamation-sign"></span> Reservation required</b><br><br>';
+        else
+            results.reservationRequired = '';
+
+        if (results.filters.closing_soon === "true")
+            results.closingSoon = '<b style="color: tomato"><span class="glyphicon glyphicon-exclamation-sign"></span> Closing Soon </b>';
+        else
+            results.closingSoon = '<b style="color: limegreen"><span class="glyphicon glyphicon-ok"></span> Open Now </b>';
+
+        if (results.filters.seats_available === "true")
+            results.seatsAvailable = '<b style="color: limegreen"><span class="glyphicon glyphicon-ok"></span> Seats available </b>';
+        else
+            results.seatsAvailable = '<b style="color: tomato"><span class="glyphicon glyphicon-exclamation-sign"></span> Fully booked</b>';
+
+
+        var location = [results.geometry.location.lat, results.geometry.location.lng];
+
+        /*      var contentString =
+         '<div><div style="padding-top:8px"><img style="max-height:15px; float: right ; margin-top: 5px" src="' + results.rating +
+         '"><strong style="font-size: 20px; margin-right: 13px">' + results.name +
+         '</strong><br><i>' + results.filters.cuisine + '</i><hr></div>' +
+         results.address +
+         '<br><br><img src="' + results.icon + '" style="max-width:250px">' +
+         '<br><br>Average Cost: <b>' + results.avgCost +
+         '</b>' + results.cardsAccepted +
+         '<br><br>' + results.isVegan +
+         'People typically spend <b>' + results.filters.avg_time_spent +
+         '</b> here<br><br>' + results.reservationRequired +
+         '<br><br><button class="btn btn-danger" value="' + location + '" id="navigation" onclick="showdirection()">Show Navigation</button></div>';
+         */
+
+        var contentString = '<div id="infowin" style="overflow: hidden !important;"><div class="card" style="max-width: 320px"><div class="card-image">' +
+
+            '<img id="resImage" src="' + results.icon + '">' +
+            '<span class="card-title" id="resName">' + results.name + '</span></div>' +
+
+            '<div class="card-content">' +
+            ' <img id="resRating" style="max-height: 18px;  margin: 5px" src="' + results.rating + '">' +
+            ' <div id="resInfo">' +
+            ' <p id="resAddress" style="margin-top: 6px">' + results.address + '</p>' +
+            ' <h6>Average Cost: <strong><p id="resAvgCost" style="display: inline-block">' + results.avgCost + '</p></strong></h6>' +
+            '<h6>Payments: <strong><p id="resCard" style="display: inline-block">' + results.cardsAccepted + '</p></strong></h6>' +
+            '<h6>People typically spend: <strong><p id="resSpendTime" style="display: inline-block">' + results.filters.avg_time_spent + '</p></strong></h6>' +
+            '<h6>Must Try: <strong><p id="mustTry" style="display: inline-block">' + results.filters.must_try + '</p></strong></h6><br>' +
+            '<h6><strong><p id="closingSoon" style="display: inline-block">' + results.closingSoon + '</p></strong></h6>' +
+            '<h6><strong><p id="seatsAvailable" style="display: inline-block">' + results.seatsAvailable + '</p></strong></h6>' +
+            '<h6><strong><p id="seatsAvailable" style="display: inline-block">' + results.reservationRequired  + '</p></strong></h6>' +
+
+            '<button class="btn waves-effect waves-light orange white-text pulse" value="' + location + '" id="navigation" onclick="showdirection()" style="width: 100%">Show Directions </button></div></div></div></div>'
+
+
+        /*
+         document.getElementById('resImage').src = results.icon;
+         document.getElementById('resName').innerText = results.name;
+         document.getElementById('resRating').src = results.rating;
+         document.getElementById('resAddress').innerText = results.address;
+         document.getElementById('resAvgCost').innerText = results.avgCost;
+         document.getElementById('resCard').innerText = results.cardsAccepted;
+         document.getElementById('resSpendTime').innerText = results.filters.avg_time_spent;
+         document.getElementById('mustTry').innerText = results.filters.must_try;
+
+         document.getElementById('navigation').value = location;
+
+
+         var contentString = document.getElementById('infoWindow');
+         contentString.style.display = 'block';
+         */
+
+        infowindow = new google.maps.InfoWindow({
+            position: results.geometry.location,
+            content: contentString
+        });
+
+        infowindow.open(map);
+    }
+
+    function showdirection() {
+
+        selectedMode = "WALKING";
+
+        filterPanel.style.display = 'none';
+        select.style.display = 'block';
+
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+        var destination = document.getElementById("navigation").value;
+
+
+        calculateAndDisplayRoute(directionsService, directionsDisplay, destination);
+
+        document.getElementById('walking').addEventListener('click', function () {
+            selectedMode = this.value;
+            calculateAndDisplayRoute(directionsService, directionsDisplay, destination);
+        });
+
+        /*        document.getElementById('bicycling').addEventListener('click', function () {
+         selectedMode = this.value;
+         calculateAndDisplayRoute(directionsService, directionsDisplay, destination);
+         });*/
+
+        document.getElementById('driving').addEventListener('click', function () {
+            selectedMode = this.value;
+            calculateAndDisplayRoute(directionsService, directionsDisplay, destination);
+        });
+
+        document.getElementById('transit').addEventListener('click', function () {
+            selectedMode = this.value;
+            calculateAndDisplayRoute(directionsService, directionsDisplay, destination);
+        });
+
+    }
+
+    function calculateAndDisplayRoute(directionsService, directionsDisplay, destination) {
+
+        infowindow.close();
+
+        document.getElementById('goback').style.display = 'block';
+
+
+        var latitude = parseFloat(destination.split(',')[0].substring(0));
+        var longitude = parseFloat(destination.split(',')[1].substring(0, 15));
+
+        var des = {
+            lat: latitude,
+            lng: longitude
+        };
+
+        directionsDisplay.setMap(map);
+
+
+        directionsService.route({
+
+            //origin: {lat: 50.7788432, lng: 6.0800873},
+            origin: {lat: 50.774289, lng: 6.085889},
+            destination: des,
+            travelMode: google.maps.TravelMode[selectedMode],
+            language: 'en'
+
+        }, function (response, status) {
+
+            if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+
+        var bottomPanel = document.getElementById("bottom-panel");
+
+        if (bottomPanel.childElementCount === 0) {
+
+            var printBtn = document.createElement("button");
+            var printT = document.createTextNode("Print");
+
+            printBtn.style.fontSize = '20px';
+            printBtn.className = 'btn btn-large waves-effect waves-light orange white-text pulse';
+            printBtn.id = 'print';
+
+            printBtn.appendChild(printT);
+            printBtn.onclick = function () {
+
+
+                printBtn.style.display = 'none';
+                document.getElementById('goback').style.display = 'none';
+
+
+                var thankInfo = document.createElement("div");
+                var thankInfoI = document.createElement("img");
+
+                thankInfoI.src = 'images/thanks.png';
+                thankInfo.id = 'thankInfo';
+                thankInfo.appendChild(thankInfoI);
+                 thankInfoI.style.width='1005px';
+
+               setTimeout("window.location.href='welcome.html'",6000);
+
+              //  setTimeout("alert('5 seconds!')",5000);
+
+                /*     var goBackBtn = document.createElement("button");
+                     var goBackT = document.createTextNode("Start Again");
+
+                     goBackBtn.className = 'btn btn-large waves-effect waves-light orange white-text pulse';
+                     goBackBtn.style.marginTop = '-200px';
+                     goBackBtn.style.marginLeft = '350px';
+                     goBackBtn.onclick = function () {
+
+                         window.location.href = "welcome.html";
+
+                     };
+
+
+                     goBackBtn.appendChild(goBackT);
+                     thankInfo.appendChild(goBackBtn);
+
+                 */
+
+                var element = document.getElementById("floating-panel");
+                element.appendChild(thankInfo);
+
+            };
+
+            bottomPanel.appendChild(printBtn);
+
+        }
+        document.getElementById('print').style.display = 'block';
+    }
+
+    function check1() {
+
+        if (document.getElementById('cuisine1').checked === true) {
+
+            document.getElementById('c1').style.border = '3px solid #ff8800';
+            document.getElementById('c1').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c1').style.border = '0px';
+            document.getElementById('c1').style.borderRadius = '0px';
+        }
+
+    }
+    function check2() {
+
+        if (document.getElementById('cuisine2').checked === true) {
+
+            document.getElementById('c2').style.border = '3px solid #ff8800';
+            document.getElementById('c2').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c2').style.border = '0px';
+            document.getElementById('c2').style.borderRadius = '0px';
+        }
+
+    }
+    function check3() {
+
+        if (document.getElementById('cuisine3').checked === true) {
+
+            document.getElementById('c3').style.border = '3px solid #ff8800';
+            document.getElementById('c3').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c3').style.border = '0px';
+            document.getElementById('c3').style.borderRadius = '0px';
+        }
+
+    }
+    function check4() {
+
+        if (document.getElementById('cuisine4').checked === true) {
+
+            document.getElementById('c4').style.border = '3px solid #ff8800';
+            document.getElementById('c4').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c4').style.border = '0px';
+            document.getElementById('c4').style.borderRadius = '0px';
+        }
+
+    }
+    function check5() {
+
+        if (document.getElementById('cuisine5').checked === true) {
+
+            document.getElementById('c5').style.border = '3px solid #ff8800';
+            document.getElementById('c5').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c5').style.border = '0px';
+            document.getElementById('c5').style.borderRadius = '0px';
+        }
+
+    }
+    function check6() {
+
+        if (document.getElementById('cuisine6').checked === true) {
+
+            document.getElementById('c6').style.border = '3px solid #ff8800';
+            document.getElementById('c6').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c6').style.border = '0px';
+            document.getElementById('c6').style.borderRadius = '0px';
+        }
+
+    }
+    function check7() {
+
+        if (document.getElementById('cuisine7').checked === true) {
+
+            document.getElementById('c7').style.border = '3px solid #ff8800';
+            document.getElementById('c7').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c7').style.border = '0px';
+            document.getElementById('c7').style.borderRadius = '0px';
+        }
+
+    }
+    function check8() {
+
+        if (document.getElementById('cuisine8').checked === true) {
+
+            document.getElementById('c8').style.border = '3px solid #ff8800';
+            document.getElementById('c8').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('c8').style.border = '0px';
+            document.getElementById('c8').style.borderRadius = '0px';
+        }
+
+    }
+
+    function check9() {
+
+        if (document.getElementById('payments1').checked === true) {
+
+            document.getElementById('p1').style.border = '3px solid #ff8800';
+            document.getElementById('p1').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('p1').style.border = '0px';
+            document.getElementById('p1').style.borderRadius = '0px';
+        }
+
+    }
+    function check10() {
+
+        if (document.getElementById('payments2').checked === true) {
+
+            document.getElementById('p2').style.border = '3px solid #ff8800';
+            document.getElementById('p2').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('p2').style.border = '0px';
+            document.getElementById('p2').style.borderRadius = '0px';
+        }
+
+    }
+
+    function check11() {
+
+        if (document.getElementById('payments3').checked === true) {
+
+            document.getElementById('p3').style.border = '3px solid #ff8800';
+            document.getElementById('p3').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('p3').style.border = '0px';
+            document.getElementById('p3').style.borderRadius = '0px';
+        }
+
+    }
+
+    function check12() {
+        if (document.getElementById('vegan1').checked === true) {
+
+            document.getElementById('v1').style.border = '3px solid #ff8800';
+            document.getElementById('v1').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('v1').style.border = '0px';
+            document.getElementById('v1').style.borderRadius = '0px';
+        }
+
+    }
+    function check13() {
+        if (document.getElementById('vegan2').checked === true) {
+
+            document.getElementById('v2').style.border = '3px solid #ff8800';
+            document.getElementById('v2').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('v2').style.border = '0px';
+            document.getElementById('v2').style.borderRadius = '0px';
+        }
+
+    }
+    function check14() {
+        if (document.getElementById('vegan3').checked === true) {
+
+            document.getElementById('v3').style.border = '3px solid #ff8800';
+            document.getElementById('v3').style.borderRadius = '45px';
+
+        } else {
+
+            document.getElementById('v3').style.border = '0px';
+            document.getElementById('v3').style.borderRadius = '0px';
+        }
+
+    }
+    function check15() {
+        if (document.getElementById('ch1').checked === true) {
+
+            document.getElementById('co1').style.border = '3px solid #ff6c00';
+            document.getElementById('co1').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('co1').style.border = '0px';
+            document.getElementById('co1').style.borderRadius = '0px';
+        }
+
+    }
+    function check16() {
+        if (document.getElementById('ch2').checked === true) {
+
+            document.getElementById('co2').style.border = '3px solid #ff6c00';
+            document.getElementById('co2').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('co2').style.border = '0px';
+            document.getElementById('co2').style.borderRadius = '0px';
+        }
+
+    }
+    function check17() {
+        if (document.getElementById('ch3').checked === true) {
+
+            document.getElementById('co3').style.border = '3px solid #ff6c00';
+            document.getElementById('co3').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('co3').style.border = '0px';
+            document.getElementById('co3').style.borderRadius = '0px';
+        }
+
+    }
+
+    function check18() {
+        if (document.getElementById('walking').checked === true) {
+
+            document.getElementById('co3').style.border = '3px solid #ff6c00';
+            document.getElementById('co3').style.borderRadius = '10px';
+
+        } else {
+
+            document.getElementById('co3').style.border = '0px';
+            document.getElementById('co3').style.borderRadius = '0px';
+        }
+
+    }
+
+</script>
+
+<!--Import jQuery before materialize.js-->
+<script src="materialize/js/materialize.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlOeg_mcdRhM-bIGHd0LeLU9OybhW33K8&libraries=places&callback=initMap"
+        async defer></script>
+
+<script>
+    $(document).ready(function () {
+     /*   $("#cost a").on("click", function () {
+            var className = "darken-4";
+
+            if ($(this).hasClass(className)) {
+                $(this).removeClass(className);
+            }
+            else
+                $(this).addClass(className);
+        });*/
+
+        $("#selectMode.mybtn").on("click", function () {
+            var className = "darken-4";
+
+            if ($(this).hasClass(className)) {
+                $(this).removeClass(className);
+            }
+            else
+                $(this).addClass(className);
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

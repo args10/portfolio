@@ -1,0 +1,68 @@
+#map {
+    height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.mybtn{
+    background-color: transparent;
+    border: transparent;
+    width: 24%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.mybtn:hover{
+    background-color: #e8e8e8;
+}
+
+#floating-panel {
+    position: absolute;
+    z-index: 5;
+}
+
+#thankInfo {
+    position: absolute;
+    top: 150px;
+    width: 700px;
+    margin-left: 120px;
+    text-align: center;
+}
+#bottom-panel {
+    position: absolute;
+    bottom: 20px;
+    left: 83%;
+}
+
+#right-panel {
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#right-panel select {
+    width: 100%;
+}
+
+#right-panel i {
+    font-size: 12px;
+}
+
+#right-panel {
+    height: 100%;
+    float: right;
+    width: 350px;
+    overflow: auto;
+}
+.cost, .payments, .cuisine, .vegan, .reservation{
+    font-size: 16px;
+}
+
