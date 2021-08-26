@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>WhereForLunch</title>
+   <link rel="stylesheet" href="./styles/testCss.css" />
+</head>
+
+<body>
+   <div id="floating-panel">
+      <b>Mode of Travel: </b>
+      <select id="mode">
+         <option value="DRIVING">Driving</option>
+         <option value="WALKING">Walking</option>
+         <option value="BICYCLING">Bicycling</option>
+         <option value="TRANSIT">Transit</option>
+      </select>
+   </div>
+   <div id="map"></div>
+   <script src="./js/direction.js"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlOeg_mcdRhM-bIGHd0LeLU9OybhW33K8&libraries=places&callback=initMap" async defer></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>WhereForLunch</title>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+   <link rel="stylesheet" href="styles/index.css" />
+   <!--Import Google Icon Font-->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!--Import materialize.css-->
+   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!--Import jQuery-->
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <!--Import bootstrap js-->
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div id="floating-panel"></div>
+   <div>
+      <div>
+         <button id="goback" class="btn btn-large orange white-text" style="display: none" onclick="goBack()">Back
+         </button>
+      </div>
+   </div>
+
+   <!-- Right Panel -->
+   <div id="right-panel">
+      <div id="filter" onchange="filter()">
+         <form class="form-horizontal">
+            <!-- Header Panel Right -->
+            <h3 class="orange darken-2">20 restaurants found near you</h3>
+
+            <!-- Section Most searched -->
+            <div class="form-group">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h5>Most searched:</h5>
+                     <div id="cuisine" class="checkbox" onclick="filterCount()">
+
+                        <input id="cuisine1" class="cuisine" type="checkbox" value="Asian" onclick="checkType('cuisine1', 'c1')">
+                        <label for="cuisine1"><img id="c1" src="images/icons/fnoodles.png">
+                           <br>
+                           <span>Noodles</span>
+                        </label>
+
+                        <input id="cuisine2" class="cuisine" type="checkbox" value="Italian" onclick="checkType('cuisine2', 'c2')">
+                        <label for="cuisine2"><img id="c2" src="images/icons/fpizza.png">
+                           <br>
+                           <span>Pizza</span>
+                        </label>
+
+                        <input id="cuisine3" class="cuisine" type="checkbox" value="Lebanese" onclick="checkType('cuisine3', 'c3')">
+                        <label for="cuisine3"><img id="c3" src="images/icons/fkebab.png">
+                           <br>
+                           <span>Kebab</span>
+                        </label>
+
+                        <input id="cuisine4" class="cuisine" type="checkbox" value="Cafe" onclick="checkType('cuisine4', 'c4')">
+                        <label for="cuisine4"><img id="c4" src="images/icons/fCoffee.png">
+                           <br>
+                           <span>Coffee</span>
+                        </label>
+
+                        <input id="cuisine5" class="cuisine" type="checkbox" value="Spanish" onclick="checkType('cuisine5', 'c5')">
+                        <label for="cuisine5"><img id="c5" src="images/icons/fseefood.png">
+                           <br>
+                           <span>Seafood</span>
+                        </label>
+
+                        <input id="cuisine6" class="cuisine" type="checkbox" value="American" onclick="checkType('cuisine6', 'c6')">
+                        <label for="cuisine6"><img id="c6" src="images/icons/fchicken.png">
+                           <br>
+                           <span>Chicken</span>
+                        </label>
+
+                        <input id="cuisine7" class="cuisine" type="checkbox" value="German" onclick="checkType('cuisine7', 'c7')">
+                        <label for="cuisine7"><img id="c7" src="images/icons/fhamburger.png">
+                           <br>
+                           <span>Burger</span>
+                        </label>
+
+                        <input id="cuisine8" class="cuisine" type="checkbox" value="French" onclick="checkType('cuisine8', 'c8')">
+                        <label for="cuisine8"><img id="c8" src="images/icons/fmuffin.png">
+                           <br>
+                           <span>Donuts</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Section Ingredients -->
+            <div class="form-group">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="progress">
+                        <div class="determinate orange" style="width:100%"></div>
+                     </div>
+                     <h5>Ingredients:</h5>
+                     <div id="vegan" class="checkbox" onclick="filterCount()">
+                        <input id="vegan1" class="vegan" type="checkbox" value="vtrue" onclick="checkType('vegan1', 'v1')">
+                        <label for="vegan1"><img id="v1" src="images/icons/vegan.jpg" height="64px" width="64px">
+                           <br>
+                           <span>Vegan</span>
+                        </label>
+                        <input id="vegan2" class="vegan" type="checkbox" value="vtrue" onclick="checkType('vegan2', 'v2')">
+                        <label for="vegan2"><img id="v2" src="images/icons/gluten.jpg" height="64px" width="64px">
+                           <br>
+                           <span>Gluten-free</span>
+                        </label>
+                        <input id="vegan3" class="vegan" type="checkbox" value="vtrue" onclick="checkType('vegan3', 'v3')">
+                        <label for="vegan3"><img id="v3" src="images/icons/lactose.jpg" height="64px" width="64px">
+                           <br>
+                           <span>Lactose-free</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Average Cost -->
+            <div class="form-group">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="progress">
+                        <div class="determinate orange" style="width:100%"></div>
+                     </div>
+                     <h5> Average Cost: </h5>
+                     <div id="cost" class="checkbox" onclick="filterCount()">                     
+                        <input id="ch1" class="cost" type="checkbox" value="less" onclick="checkType('ch1', 'co1')">
+                        <label for="ch1"> <img id="co1" src="images/icons/low.jpg" height="45px;">
+                           <br>
+                           <span>0 - 10 &#8364;</span>
+                        </label>
+
+                        <input id="ch2" class="cost" type="checkbox" value="medium" onclick="checkType('ch2', 'co2')">
+                        <label for="ch2"> <img id="co2" src="images/icons/med.jpg" height="45px;">
+                           <br>
+                           <span>11 - 40 &#8364;</span>
+                        </label>
+
+                        <input id="ch3" class="cost" type="checkbox" value="high" onclick="checkType('ch3', 'co3')">
+                        <label for="ch3"> <img id="co3" src="images/icons/med.jpg" height="45px;">
+                           <br>
+                           <span>41 - 60 &#8364;</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Section Payment -->
+            <div class="form-group" id="payment">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="progress">
+                        <div class="determinate orange" style="width:100%"></div>
+                     </div>
+                     <h5>Payment:</h5>
+                     <div id="payments" class="checkbox" onclick="filterCount()">
+                        <input id="payments1" class="payments" type="checkbox" value="cfalse" onclick="checkType('payments1', 'p1')">
+                        <label for="payments1"> <img id="p1" src="images/icons/cash.png">
+                           <br>
+                           <span>Cash</span>
+                        </label>
+
+                        <input id="payments2" class="payments" type="checkbox" value="ctrue" onclick="checkType('payments2', 'p2')">
+                        <label for="payments2"> <img id="p2" src="images/icons/visaCard.png">
+                           <br>
+                           <span>Visa</span>
+                        </label>
+
+                        <input id="payments3" class="payments" type="checkbox" value="ctrue" onclick="checkType('payments3', 'p3')">
+                        <label for="payments3"> <img id="p3" src="images/icons/masterCard.png">
+                           <br>
+                           <span>Mastercard</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+
+      <!-- Section Travel options -->
+      <div id="selectMode" style="display: none">
+         <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="walking" value="WALKING">
+               <i class="material-icons">directions_walk</i>
+            </button>
+            <span>walking</span>
+         </div>
+
+         <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="transit" value="TRANSIT">
+               <i class="material-icons">directions_bus</i>
+            </button>
+            <br>
+            <span>By bus</span>
+         </div>
+         <div class="trans-mode-wrapper">
+            <button class="btn orange white-text mybtn" id="driving" value="DRIVING">
+               <i class="material-icons">directions_car</i>
+            </button>
+            <br>
+            <span>By Car</span>
+         </div>
+      </div>
+      <div id="bottom-panel"></div>
+   </div>
+
+   <!-- To display the map -->
+   <div id="map"></div>
+   <!-- Import script index.js -->
+   <script src="./js/index.js"></script>
+   <!--Import jQuery before materialize.js-->
+   <script src="materialize/js/materialize.min.js"></script>
+   <!-- Import google map function -->
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlOeg_mcdRhM-bIGHd0LeLU9OybhW33K8&libraries=places&callback=initMap" async defer></script>
+</body>
+
+</html>
