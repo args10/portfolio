@@ -1,0 +1,119 @@
+/* W3C */
+@keyframes "fun-time-awesome" {
+  0% {
+    background-position: left top;
+  }
+  100% {
+    background-position: left bottom;
+  }
+}
+
+/* Firefox */
+
+/* Chrome, Safari */
+@-webkit-keyframes "fun-time-awesome" {
+  0% {
+    background-position: left top;
+  }
+  100% {
+    background-position: left bottom;
+  }
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.jumbotron {
+  height: 100%;
+}
+
+.jumbotron h1 {
+  margin-top: 300px;
+  font-size: 120px;
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 140px;
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.jumbotron h2 {
+  display: inline-block;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+.jumbotron h2 a {
+  color: #fff;
+  font-size: 25px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  border: 5px solid white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+div::after {
+  content: "";
+  background: url("../images/bgs/3.png");
+  opacity: .5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.multi-bg {
+  background-image: -webkit-linear-gradient(top, #ff3232 0%, #fcf528 16%, #28fc28 32%, #28fcf8 50%, #272ef9 66%, #ff28fb 82%, #ff3232 100%);
+  background-size: 1000%;
+  -moz-background-size: 1000%;
+  -webkit-background-size: 1000%;
+  animation-name: fun-time-awesome;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  -moz-animation-name: fun-time-awesome;
+  -moz-animation-duration: 40s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-play-state: running;
+  -webkit-animation-name: fun-time-awesome;
+  -webkit-animation-duration: 40s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-play-state: running;
+}
+/*# sourceMappingURL=welcome.css.map */

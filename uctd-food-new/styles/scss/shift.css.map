@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,UAAU;EACT,WAAW,EAAE,OAAO;EACpB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,MAAM;EACnB,GAAG,EAAE,0BAA0B,CAAC,cAAc;;;AAE/C,UAAU;EACT,WAAW,EAAE,OAAO;EACpB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,IAAI;EACjB,GAAG,EAAE,+BAA+B,CAAC,cAAc",
+    "sources": [
+        "shift.scss"
+    ],
+    "names": [],
+    "file": "shift.css"
+}
